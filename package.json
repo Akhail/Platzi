@@ -4,11 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./built/server/"
+    "start": "webpack && node ./built/server/",
+    "watch": "webpack -w",
+    "build": "node ./built/server/"
   },
   "dependencies": {
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
