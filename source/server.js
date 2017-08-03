@@ -2,7 +2,7 @@ import http from 'http';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-requestHandler = (request, response) => {
+const requestHandler = (request, response) => {
     const html = renderToString(
         React.DOM.h1(null, 'hola')
     );
