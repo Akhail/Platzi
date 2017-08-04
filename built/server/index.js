@@ -10584,6 +10584,10 @@ var _Page = __webpack_require__(218);
 
 var _Page2 = _interopRequireDefault(_Page);
 
+var _Layout = __webpack_require__(223);
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const requestHandler = (request, response) => {
@@ -10601,7 +10605,10 @@ const requestHandler = (request, response) => {
         });
         response.end();
     }
-    response.write(html);
+    response.write((0, _server.renderToStaticMarkup)(_react2.default.createElement(_Layout2.default, {
+        title: 'Aplicacion',
+        content: html
+    })));
     response.end();
 };
 
@@ -24804,6 +24811,52 @@ class Error404 extends _react.Component {
 }
 
 exports.default = Error404;
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Layout = ({ title, content }) => _react2.default.createElement(
+    "html",
+    { lang: "es" },
+    _react2.default.createElement(
+        "head",
+        null,
+        _react2.default.createElement("meta", { charSet: "UTF-8" }),
+        _react2.default.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1.0" }),
+        _react2.default.createElement("meta", { "http-equiv": "X-UA-Compatible", content: "ie=edge" }),
+        _react2.default.createElement(
+            "title",
+            null,
+            title
+        )
+    ),
+    _react2.default.createElement(
+        "body",
+        null,
+        _react2.default.createElement("div", { id: "render-target",
+            dangerouslySetInnerHTML: {
+                __html: content
+            }
+        }),
+        _react2.default.createElement("script", { src: "http://localhost:3000/app.js" })
+    )
+);
+
+exports.default = Layout;
 
 /***/ })
 /******/ ]);
