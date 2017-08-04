@@ -24852,7 +24852,7 @@ const Layout = ({ title, content }) => _react2.default.createElement(
                 __html: content
             }
         }),
-        _react2.default.createElement("script", { src: "http://localhost:3000/app.js" })
+        _react2.default.createElement("script", { src: "http://localhost:3001/app.js" })
     )
 );
 

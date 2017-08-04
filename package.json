@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack && node ./built/server/",
     "watch": "webpack -w",
-    "build": "node ./built/server/"
+    "bff": "node ./built/server/",
+    "sfs": "serve ./built/statics/ --port 3001 --cache 0"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
@@ -23,6 +24,7 @@
     "babel-preset-latest-minimal": "^1.1.2",
     "babel-preset-react": "^6.24.1",
     "json-loader": "^0.5.7",
+    "serve": "^6.0.5",
     "webpack": "^3.4.1"
   }
 }

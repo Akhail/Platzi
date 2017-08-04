@@ -14,7 +14,7 @@ const Layout = ({title, content}) => (
                     __html: content,
                 }}
             />
-            <script src="http://localhost:3000/app.js" />
+            <script src="http://localhost:3001/app.js" />
         </body>
     </html>
 )
