@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import api from '../../api.js';
+
 
 class Post extends Component {
     constructor(props){
         super(props);
         this.state = { 
             loading: true,
-            user: {},
+            user: props.user || null,
             comments: [],
         }
     } 
@@ -19,20 +21,19 @@ class Post extends Component {
             user,
             comments,
         ] = await Promise.all([
-            api.users.getSingle(userId),
+            !this.state.user ? api.users.getSingle(userId) : Promise.resolve(null),
             api.posts.getComments(id)
         ]);
 
         this.setState({
             loading: false,
-            user,
+            user: user || this.state.user,
             comments
         });
     }
 
     render() {
         const { id, title, body } = this.props;
-        const { name, website} = this.state.user;
         const { loading, comments  } = this.state;
         return (
             <article id={`post-${id}`}>
@@ -42,9 +43,11 @@ class Post extends Component {
 
                 {!loading && (
                     <div>
-                        <a href={`//${website}`} target="_blank" rel="nofollow">
-                            { name }
-                        </a>
+                        <Link to={`/user/${this.state.user.id}`}>
+                            { this.state.user.name }
+                        </Link>
+
+                        
                         <span>
                             Hay { comments.length } comentarios.
                         </span>
